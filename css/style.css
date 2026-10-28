@@ -1,0 +1,206 @@
+:root {
+    --blue-color: rgb(0, 0, 255);
+    --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: 'Roboto Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: var(--font-body);
+    color: white;
+    background-color: white;
+}
+
+header, footer {
+    position: fixed;
+    width: 100%;
+    background-color: var(--blue-color);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: var(--font-heading);
+    z-index: 100;
+}
+
+header { top: 0; }
+footer { bottom: 0; font-size: 0.8rem; line-height: 1.4; }
+
+.header-right {
+    display: flex !important;
+    gap: 40px !important; /* Modifica questo numero se vuoi più o meno spazio tra le parole */
+    justify-content: flex-end !important; /* Evita che si allarghino a tutto schermo */
+    align-items: center !important;
+}
+
+.footer-item {
+    flex: 1;
+    margin-right: 20px;
+}
+.footer-item:last-child { margin-right: 0; }
+.footer-item strong {
+    font-family: var(--font-heading);
+    font-weight: normal;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1800px;
+    overflow: hidden;
+}
+
+#intro-text {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 10vw;
+    line-height: 0.9;
+    color: black;
+    z-index: 50;
+    pointer-events: none;
+    transition: opacity 1.2s ease-in-out; 
+}
+
+.side-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: black;
+    z-index: 40;
+}
+.left-date { left: 5vw; }
+.right-date { right: 5vw; }
+
+#gallery-container {
+    width: 70vw;
+    height: 60vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20vh;
+    transform-style: preserve-3d;
+}
+
+/* Regola generale per tutti i lavori */
+.gallery-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease-in-out;
+    opacity: 0; 
+    outline: none;
+    border: none;
+}
+
+/* Blocco ferreo in pixel per Robot Festival (9), Fotogrammetrie (16) e IMAGO (22) */
+.gallery-item[data-id="9"],
+.gallery-item[data-id="16"],
+.gallery-item[data-id="22"] {
+    width: 180px !important;
+    height: 100% !important; /* Mantiene l'altezza del contenitore come gli altri */
+    object-fit: contain !important; /* Mantiene la proporzione corretta che ti piaceva */
+    object-position: center center !important;
+}
+video.gallery-item {
+    width: 220px !important;
+    height: 90% !important;
+    object-fit: contain !important;
+    outline: none;
+    border: none;
+}
+
+body.loaded .gallery-item {
+    opacity: 0.45; 
+}
+
+body.loaded.text-hidden .gallery-item {
+    opacity: 1;
+}
+
+
+.header-right a {
+    color: #ffffff; /* Usa lo stesso colore delle voci della sidebar o il colore che preferisci */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-right a:hover {
+    color: #ffffff; /* Colore al passaggio del mouse */
+}
+.header-left a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-left a:hover {
+    opacity: 1;
+}
+.header-right {
+    display: flex;
+    gap: 30px; /* Regola qui la distanza esatta tra le voci del menu */
+    align-items: center;
+}
+
+.header-right a, 
+.header-right span {
+    text-decoration: none;
+    font-family: 'helvetica', ;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* Se l'elemento è un link normale */
+.header-right a.nav-link {
+    color: #ffffff;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.header-right a.nav-link:hover {
+    opacity: 0.5;
+}
+
+/* Se la voce indica la pagina in cui ti trovi (attiva) */
+.header-right span.active-nav {
+    color: #ffffff;
+    opacity: 0.4; /* Oppure lo stile che preferisci per indicare la pagina attiva */
+    cursor: default;
+}
+/* Forza tutto il testo e i link del footer a essere bianchi */
+footer, 
+footer *, 
+footer a, 
+footer span, 
+footer strong {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* Effetto al passaggio del mouse sui link del footer */
+footer a:hover {
+    opacity: 0.5;
+}

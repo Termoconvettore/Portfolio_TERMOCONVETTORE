@@ -1,0 +1,163 @@
+/* Layout diviso tra sidebar a sinistra e area 3D a destra */
+.works-layout-wrapper {
+    position: absolute;
+    top: 60px;
+    bottom: 75px;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100vw;
+}
+
+.rotary-filter-sidebar {
+    flex: 0 0 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    z-index: 50;
+    background: transparent;
+    user-select: none;
+}
+
+.rotary-wheel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.rotary-item {
+    font-family: var(--font-heading);
+    color: #b2adf1; /* Colore personalizzato per le voci non attive (cambialo a piacimento) */
+    font-size: 0.9rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    cursor: pointer;
+}
+
+.rotary-item.selected {
+    color:blue;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.works-main-3d {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Aumentiamo la prospettiva no tagli ai bordi */
+    perspective: 2200px;
+    overflow: hidden;
+}
+
+.ring-item {
+    position: absolute;
+    width: 130px;
+    height: 180px;
+    object-fit: contain;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+    left: -65px;
+    top: -90px;
+}
+
+#ring-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ring-item.filtered-out {
+    opacity: 0 !important;
+    pointer-events: none;
+    transform: translate3d(0, 0, -600px) scale(0.05) !important;
+}
+
+.ring-item.horizontal-book {
+    width: auto !important;
+    height: 180px !important; /* Stessa altezza degli altri */
+    object-fit: cover;
+    /* Spostiamo il punto di ancoraggio a sinistra per evitare che si decentri rispetto al cerchio 3D */
+    left: -90px; /* Sarà metà della nuova larghezza stimata, oppure puoi regolarlo */
+} 
+#project-link {
+    position: fixed;
+    transform: translateX(-50%);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10001;
+    white-space: nowrap;
+}
+
+#project-link.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ring-item, .works-main-3d {
+    -webkit-user-select: none; /* Safari */
+    user-select: none;        /* Standard */
+    -webkit-user-drag: none;  /* Impedisce il trascinamento nativo dell'immagine */
+}
+
+.works-layout-wrapper {
+    position: absolute;
+    top: 60px;
+    bottom: 75px;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100vw;
+    /* Gestione responsive per schermi stretti */
+    flex-direction: row; 
+}
+
+/* Regole per mobile / schermi piccoli */
+@media (max-width: 768px) {
+    .works-layout-wrapper {
+        flex-direction: column;
+    }
+    
+    .rotary-filter-sidebar {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        padding: 10px 20px;
+        justify-content: center;
+    }
+
+    .rotary-wheel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .works-main-3d {
+        flex: 1;
+        /* Riduciamo la prospettiva su mobile per mantenere il cerchio visibile */
+        perspective: 1200px; 
+    }
+    
+    .ring-item {
+        width: 100px;
+        height: 140px;
+        left: -50px;
+        top: -70px;
+    }
+}

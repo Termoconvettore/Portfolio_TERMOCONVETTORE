@@ -1,0 +1,1090 @@
+
+/* Sblocca lo scrolling globale ereditato dalla home */
+html, body.project-body {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: auto !important;
+    overflow-y: scroll !important;
+}
+
+/* Evita che il tag main di style.css blocchi l'altezza al 100vh */
+body.project-body main.project-main {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+}
+
+/* Forza il testo bianco per header e footer (sovrascrivendo le regole globali di style.css) */
+header, footer {
+    color: #ffffff !important;
+}
+
+header a, 
+footer a, 
+header span, 
+footer span, 
+footer strong {
+    color: #ffffff !important;
+}
+
+/* Layout specifico per la pagina progetto */
+.project-main {
+    width: 100%;
+    padding: 120px 5vw 100px 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.project-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.project-header-section {
+    margin-bottom: 60px;
+    border-bottom: 1px solid #0000ff;
+    padding-bottom: 20px;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: #0000ff; 
+}
+
+.project-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #0000ff;
+}
+
+.project-info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.project-description p {
+    margin-bottom: 10px;
+}
+
+.project-credits h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.project-info-grid a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+.project-info-grid a:hover {
+    color: #000;
+}
+
+/* Griglia galleria immagini (20 mockup) */
+.project-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 10vw; /* Aggiunge margini laterali consistenti (il 10% dello schermo a destra e sinistra) */
+}
+
+.gallery-item-wrapper {
+    width: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.gallery-item-wrapper:nth-child(3n) {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .project-info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .project-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-item-wrapper:nth-child(3n) {
+        grid-column: span 1;
+    }
+    .project-title {
+        font-size: 2.5rem;
+    }
+}
+/* Sblocca lo scrolling globale ereditato dalla home */
+html, body {
+    overflow: auto !important;
+    height: auto !important;
+}
+
+body.project-body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    overflow-y: scroll !important;
+    height: auto !important;
+}
+
+/* Forza il testo bianco per header e footer */
+header, footer {
+    color: #ffffff !important;
+}
+
+header a, 
+footer a, 
+header span, 
+footer span, 
+footer strong {
+    color: #ffffff !important;
+}
+.gallery-item-wrapper a {
+    display: block;
+    width: 100%;
+}
+
+/* Fa in modo che il primo elemento occupi entrambe le colonne della griglia */
+.gallery-item-wrapper:first-child {
+    grid-column: span 2;
+}
+
+/* Modifica la visualizzazione dell'immagine all'interno del wrapper */
+.gallery-item-wrapper:first-child img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Riempie lo spazio evitando bande grigie indesiderate */
+}
+.gallery-item-wrapper:first-child {
+    grid-column: span 2;
+    background-color: transparent; /* Rimuove lo sfondo grigio solo per la prima */
+}
+
+/* 1. Fix per il Footer: posizionamento corretto in fondo alla pagina */
+body.project-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.project-body main.project-main {
+    flex: 1; /* Spinge il footer in basso se il contenuto è corto */
+}
+
+footer {
+    position: relative !important;
+    width: 100%;
+}
+
+/* 2. Personalizzazione GLightbox: Sfondo bianco e frecce blu */
+.goverlay {
+    background: #ffffff !important; /* Sfondo bianco della modale */
+}
+
+.glightbox-container .gslide-media {
+    background: #ffffff !important; /* Sfondo bianco dietro l'immagine */
+}
+
+/* Rimuove l'ombra dietro le immagini in GLightbox */
+.gslide-image, 
+.gslide-image img {
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* Forza le frecce di navigazione a diventare blu */
+.gprev svg path,
+.gnext svg path,
+.gnav-btn svg path {
+    fill: #0000ff !important;
+    stroke: #0000ff !important;
+}
+
+/* Assicura che anche il pulsante di chiusura (X) sia blu */
+.gclose svg path {
+    fill: #0000ff !important;
+    stroke: #0000ff !important;
+}
+/* Regole valide SOLO per la pagina biblioteche */
+.page-biblioteche .project-gallery-grid .gallery-item-wrapper:nth-child(1) {
+    grid-column: span 2;
+}
+
+.page-biblioteche .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: span 2;
+}
+
+.page-biblioteche .project-gallery-grid .gallery-item-wrapper:nth-child(3) {
+    grid-column: 2;
+}
+
+/* Regole valide SOLO per la pagina On festival: rende la seconda foto grande come la prima */
+.page-on-festival .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: span 2;
+}
+
+/* Regole di layout valide SOLO per la pagina Liminal */
+
+/* 1. Riporta di base tutti i wrapper a 1 colonna */
+.page-liminal .project-gallery-grid .gallery-item-wrapper {
+    grid-column: span 1;
+}
+
+/* 2. Prima foto grande a tutta larghezza */
+.page-liminal .project-gallery-grid .gallery-item-wrapper:nth-child(1) {
+    grid-column: span 2;
+}
+
+/* 3. Seconda foto a destra da sola (forzata sulla seconda colonna) */
+.page-liminal .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: 2 / 3;
+}
+
+/* 4. Terza foto grande a tutta larghezza */
+.page-liminal .project-gallery-grid .gallery-item-wrapper:nth-child(3) {
+    grid-column: span 2;
+}
+
+/* 5. Quarta foto grande a tutta larghezza */
+.page-liminal .project-gallery-grid .gallery-item-wrapper:nth-child(4) {
+    grid-column: span 2;
+}
+
+/* 6. Dal 5° all'8° elemento (gli screenshot) restano a coppie di due (span 1) automaticamente */
+
+/* 7. Ultima immagine grande a tutta larghezza */
+.page-liminal .project-gallery-grid .gallery-item-wrapper:last-child {
+    grid-column: span 2;
+}
+
+/* 8. Allineamento e stile perfetto per il link del PDF in maiuscolo */
+.page-liminal .project-pdf-download {
+    margin-top: 30px;
+    padding: 0 10vw; 
+    text-align: left;
+}
+
+.page-liminal .project-pdf-download a {
+    color: #0000ff; 
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.page-liminal .project-pdf-download a:hover {
+    color: #000000;
+}
+/* Regole definitive e corrette per la pagina Cortocircuito */
+
+/* 1. Griglia a 1 sola colonna */
+.page-cortocircuito .project-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 60px !important;
+    padding: 0 10vw !important;
+}
+
+/* 2. Rimuove lo sfondo grigio */
+.page-cortocircuito .gallery-item-wrapper {
+    background-color: transparent !important;
+    display: block !important;
+    width: 100%;
+}
+
+/* 3. Trasforma il link in un contenitore flex a tutta larghezza */
+.page-cortocircuito .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+}
+
+/* 4. Limita l'altezza massima dei poster per farli stare nello schermo */
+.page-cortocircuito .project-gallery-grid .gallery-item-wrapper img {
+    max-height: 65vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 5. Ritmo asimmetrico applicato direttamente al link (a) */
+
+/* Primo poster a SINISTRA */
+.page-cortocircuito .project-gallery-grid .gallery-item-wrapper:nth-child(1) a {
+    justify-content: flex-start;
+}
+
+/* Secondo poster a DESTRA (ora funzionerà al 100%) */
+.page-cortocircuito .project-gallery-grid .gallery-item-wrapper:nth-child(2) a {
+    justify-content: flex-end;
+}
+
+/* Terzo poster a SINISTRA */
+.page-cortocircuito .project-gallery-grid .gallery-item-wrapper:nth-child(3) a {
+    justify-content: flex-start;
+}
+
+/* Su smartphone tornano centrati */
+@media (max-width: 768px) {
+    .page-cortocircuito .project-gallery-grid .gallery-item-wrapper a {
+        justify-content: center !important;
+    }
+}
+/* Regole definitive e corrette per la pagina Bonifica */
+
+/* 1. Reset generale per la pagina Bonifica: niente sfondi grigi e struttura flex */
+.page-bonifica .project-gallery-grid .gallery-item-wrapper {
+    background-color: transparent !important;
+    display: block !important;
+    width: 100%;
+}
+
+.page-bonifica .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+}
+
+/* 2. PRIMA IMMAGINE: da sola, occupa l'intera riga (entrambe le colonne) */
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(1) {
+    grid-column: span 2 !important;
+}
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(1) a {
+    justify-content: flex-start;
+}
+
+/* 3. SECONDA IMMAGINE: occupa metà colonna ed è allineata a SINISTRA */
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: span 1 !important;
+}
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(2) a {
+    justify-content: flex-start;
+}
+
+/* 4. TERZA IMMAGINE: occupa metà colonna ed è allineata a DESTRA (accanto alla seconda) */
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(3) {
+    grid-column: span 1 !important;
+}
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(3) a {
+    justify-content: flex-end;
+}
+
+/* 5. QUARTA IMMAGINE: come la prima, da sola e occupa l'intera riga */
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(4) {
+    grid-column: span 2 !important;
+}
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(4) a {
+    justify-content: flex-start;
+}
+
+/* 6. QUINTA IMMAGINE: come la seconda, occupa metà colonna ed è allineata a SINISTRA */
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(5) {
+    grid-column: span 1 !important;
+}
+.page-bonifica .project-gallery-grid .gallery-item-wrapper:nth-child(5) a {
+    justify-content: flex-start;
+}
+
+/* Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+    .page-bonifica .project-gallery-grid .gallery-item-wrapper {
+        grid-column: span 1 !important;
+    }
+    .page-bonifica .project-gallery-grid .gallery-item-wrapper a {
+        justify-content: center !important;
+    }
+}
+
+/* Regole di layout valide SOLO per la pagina Pathetik Graphik Poetik */
+
+/* 1. Forza la griglia a 2 colonne fisse (tutte a coppie) */
+.page-pathetik .project-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important; /* Spazio verticale e orizzontale tra le coppie */
+}
+
+/* 2. Rimuove i fondi grigi dai box delle immagini e sistema il blocco */
+.page-pathetik .project-gallery-grid .gallery-item-wrapper {
+    grid-column: span 1 !important;
+    background-color: transparent !important;
+    display: flex !important;
+    width: 100%;
+}
+
+.page-pathetik .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+    justify-content: center; /* Centra l'immagine nel suo spazio */
+}
+
+/* 3. Assicura che le immagini mantengano le proporzioni corrette */
+.page-pathetik .project-gallery-grid .gallery-item-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 4. Adattamento per dispositivi mobili (singola colonna su smartphone) */
+@media (max-width: 768px) {
+    .page-pathetik .project-gallery-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Regole di layout valide SOLO per la pagina Little Fun Zine */
+
+/* 1. Rimuove i fondi grigi e predispone il flexbox */
+.page-little-fun .project-gallery-grid .gallery-item-wrapper {
+    background-color: transparent !important;
+    display: flex !important;
+    width: 100%;
+}
+
+.page-little-fun .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+}
+
+/* 2. PRIMA IMMAGINE: Grande, occupa l'intera riga (entrambe le colonne) */
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(1) {
+    grid-column: span 2 !important;
+}
+.page-little-fun .project-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(1) a {
+    justify-content: flex-start;
+}
+
+/* 3. SECONDA IMMAGINE: Metà colonna, allineata a sinistra */
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: span 1 !important;
+}
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(2) a {
+    justify-content: flex-start;
+}
+
+/* 4. TERZA IMMAGINE: Metà colonna, grande come la seconda e affiancata ad essa (a destra) */
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(3) {
+    grid-column: span 1 !important;
+}
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(3) a {
+    justify-content: flex-end;
+}
+
+/* 5. Immagini successive (4 e 5) tornano al flusso normale della griglia */
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(n+4) {
+    grid-column: span 1 !important;
+}
+
+/* Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+    .page-little-fun .project-gallery-grid .gallery-item-wrapper {
+        grid-column: span 1 !important;
+    }
+    .page-little-fun .project-gallery-grid .gallery-item-wrapper a {
+        justify-content: center !important;
+    }
+}
+/* Allinea la seconda e la terza immagine in alto nella loro riga */
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(2),
+.page-little-fun .project-gallery-grid .gallery-item-wrapper:nth-child(3) {
+    align-items: flex-start !important;
+}
+
+
+/* Regole di layout valide SOLO per la pagina Punti d'incontro */
+
+/* 1. Griglia a 2 colonne fisse per affiancare le foto verticali */
+.page-punti .project-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+}
+
+/* 2. Rimuove i sfondi grigi e imposta il layout base */
+.page-punti .project-gallery-grid .gallery-item-wrapper {
+    grid-column: span 1 !important; /* Di base occupano metà spazio (per le verticali) */
+    background-color: transparent !important;
+    display: flex !important;
+    width: 100%;
+}
+
+.page-punti .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
+}
+
+.page-punti .project-gallery-grid .gallery-item-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 3. Se un'immagine è orizzontale (le diciamo di occupare entrambe le colonne a tutta larghezza) */
+.page-punti .project-gallery-grid .gallery-item-wrapper.is-horizontal {
+    grid-column: span 2 !important;
+}
+
+/* Adattamento per smartphone */
+@media (max-width: 768px) {
+    .page-punti .project-gallery-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .page-punti .project-gallery-grid .gallery-item-wrapper.is-horizontal {
+        grid-column: span 1 !important;
+    }
+}
+
+/* Regole di layout aggiornate per la pagina Nell'aria */
+
+/* 1. Rimuove i fondi grigi e imposta il layout base */
+.page-nellaria .project-gallery-grid .gallery-item-wrapper {
+    background-color: transparent !important;
+    display: flex !important;
+    width: 100%;
+}
+
+.page-nellaria .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+}
+
+.page-nellaria .project-gallery-grid .gallery-item-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 2. PRIMA E SECONDA IMMAGINE: Grandi a tutta larghezza */
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(1),
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: span 2 !important;
+}
+
+/* 3. TERZA E QUARTA IMMAGINE: Griglia standard (metà colonna) */
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(3),
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(4) {
+    grid-column: span 1 !important;
+}
+
+/* 4. QUINTA IMMAGINE (la terzultima): Grande a tutta larghezza come la prima */
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(5) {
+    grid-column: span 2 !important;
+}
+
+/* 5. ULTIME DUE IMMAGINI (Fronte e Retro): Sulla stessa riga, affiancate a metà colonna */
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(6),
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(7) {
+    grid-column: span 1 !important;
+}
+
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(6) a {
+    justify-content: flex-start;
+}
+
+.page-nellaria .project-gallery-grid .gallery-item-wrapper:nth-child(7) a {
+    justify-content: flex-end;
+}
+
+/* Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+    .page-nellaria .project-gallery-grid .gallery-item-wrapper {
+        grid-column: span 1 !important;
+    }
+    .page-nellaria .project-gallery-grid .gallery-item-wrapper a {
+        justify-content: center !important;
+    }
+}
+
+/* Regole di layout valide per le pagine Holy e Holy copia */
+
+/* 1. Rimuove lo sfondo grigio e predispone il contenitore */
+.page-holy .project-gallery-grid {
+    grid-template-columns: 1fr !important;
+}
+
+.page-holy .project-gallery-grid .gallery-item-wrapper {
+    background-color: transparent !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
+
+.page-holy .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
+
+/* 2. Riduce l'altezza del poster per farlo vedere interamente nello schermo */
+.page-holy .project-gallery-grid .gallery-item-wrapper img {
+    max-height: 65vh !important; /* Modifica questo valore (es. 60vh o 70vh) se vuoi renderlo leggermente più piccolo o più grande */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+}
+
+
+/* Regole di layout definitive per la pagina Soglia */
+
+/* 1. Rimuove i fondi grigi e imposta il layout base */
+.page-soglia .project-gallery-grid .gallery-item-wrapper {
+    background-color: transparent !important;
+    display: flex !important;
+    width: 100%;
+}
+
+.page-soglia .project-gallery-grid .gallery-item-wrapper a {
+    display: flex !important;
+    width: 100%;
+}
+
+.page-soglia .project-gallery-grid .gallery-item-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 2. PRIMA IMMAGINE: Larga come tutto lo spazio */
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(1) {
+    grid-column: span 2 !important;
+}
+
+/* 3. SECONDA IMMAGINE: Larga la metà ed allineata a DESTRA */
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(2) {
+    grid-column: span 1 !important;
+}
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(2) a {
+    justify-content: flex-end !important;
+}
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(2) img {
+    width: 85%; /* Regola la percentuale se vuoi rimpicciolirla leggermente */
+}
+
+/* 4. TERZA E QUARTA IMMAGINE: Larghe come tutto lo spazio */
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(3),
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(4) {
+    grid-column: span 2 !important;
+}
+
+/* 5. ULTIMI 3 SCREENSHOT: Metà colonna ciascuno */
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(5),
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(6),
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(7) {
+    grid-column: span 1 !important;
+}
+
+/* Primo e secondo screen affiancati (sinistra e destra) */
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(5) a {
+    justify-content: flex-start !important;
+}
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(6) a {
+    justify-content: flex-end !important;
+}
+
+/* Terzo screen (l'ultimo) va a capo ed è allineato a SINISTRA */
+.page-soglia .project-gallery-grid .gallery-item-wrapper:nth-child(7) a {
+    justify-content: flex-start !important;
+}
+
+/* Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+    .page-soglia .project-gallery-grid .gallery-item-wrapper {
+        grid-column: span 1 !important;
+    }
+    .page-soglia .project-gallery-grid .gallery-item-wrapper a {
+        justify-content: center !important;
+    }
+    .page-soglia .project-gallery-grid .gallery-item-wrapper img {
+        width: 100% !important;
+    }
+}
+/* ===================================================
+   STILI SPECIFICI ED ESCLUSIVI PER LA PAGINA 46-94
+   =================================================== */
+
+/* Container principale centrato e pulito */
+.page-46-94 .project-container {
+    max-width: 1000px !important;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-46-94 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 1. Hero Image */
+.page-46-94 .hero-image-section {
+    margin-bottom: 50px;
+}
+
+/* 2. Header & Titoli Blu */
+.page-46-94 .project-header-section {
+    margin-bottom: 60px;
+    border-bottom: none !important;
+}
+
+.page-46-94 .project-title {
+    font-size: 3.5rem;
+    line-height: 1.05;
+    color: #0000ff;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.page-46-94 .project-subtitle {
+    font-size: 1.1rem;
+    color: #0000ff;
+    margin-bottom: 25px;
+}
+
+.page-46-94 .project-description-block {
+    max-width: 650px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #000;
+}
+
+.page-46-94 .project-description-block p {
+    margin-bottom: 12px;
+}
+
+.page-46-94 .project-description-block a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+/* 3. Concept Loghi */
+.page-46-94 .concept-logos-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+/* 4. Griglia Mockup Piccoli */
+.page-46-94 .small-mockups-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.page-46-94 .small-mockups-grid .column-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 5. Shopper Sfondo Nero */
+.page-46-94 .full-width-black {
+    background-color: #000000;
+    padding: 60px 0;
+    margin: 60px -100vw; /* Estende il nero a tutta larghezza schermo */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.page-46-94 .full-width-black img {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* 6. Sezione Editoriale Libro */
+.page-46-94 .book-editorial-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.page-46-94 .book-editorial-section .pages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.page-46-94 .book-editorial-section .book-cover-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.page-46-94 .project-credits-text {
+    font-size: 0.85rem;
+    color: #0000ff;
+    line-height: 1.4;
+}
+
+.page-46-94 .project-credits-text a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+/* 7. Banner Finale */
+.page-46-94 .full-width-banner {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+/* Adattamento Responsive per Smartphone */
+@media (max-width: 768px) {
+    .page-46-94 .small-mockups-grid,
+    .page-46-94 .book-editorial-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-46-94 .project-title {
+        font-size: 2.2rem;
+    }
+
+    .page-46-94 .full-width-black {
+        padding: 30px 20px;
+    }
+}
+/* Rende la prima sezione (il bus shelter) a pieno schermo senza margini */
+.page-46-94 .hero-image-section {
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 60px;
+}
+
+.page-46-94 .hero-image-section img {
+    width: 100% !important;
+    height: auto;
+    display: block;
+}/* ===================================================
+   CORREZIONI FULL-WIDTH E SPAZIATURA PER LA PAGINA 46-94
+   =================================================== */
+
+/* 1. Rimuove lo spazio bianco tra l'header e l'inizio della pagina */
+.page-46-94 .project-main {
+    padding-top: 0 !important;
+}
+
+/* 2. Regola universale per estendere le sezioni a pieno schermo (senza margini laterali) */
+.page-46-94 .hero-image-section,
+.page-46-94 .concept-logos-section,
+.page-46-94 .full-width-black,
+.page-46-94 .full-width-banner {
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* 3. Spaziature specifiche per ogni sezione full-width */
+.page-46-94 .hero-image-section {
+    margin-bottom: 60px;
+}
+
+.page-46-94 .concept-logos-section {
+    margin-bottom: 80px;
+    background-color: #ffffff; /* Sfondo bianco o personalizzabile se serve */
+    padding: 0;
+}
+
+.page-46-94 .concept-logos-section img {
+    width: 100% !important;
+    height: auto;
+    display: block;
+}
+
+.page-46-94 .full-width-black {
+    background-color: #000000;
+    padding: 60px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-46-94 .full-width-black img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.page-46-94 .full-width-banner {
+    margin-top: 60px;
+    margin-bottom: 0;
+}
+
+.page-46-94 .full-width-banner img {
+    width: 100% !important;
+    height: auto;
+    display: block;
+}
+/* Rende l'header statico in cima: scorre via insieme alla pagina */
+header {
+    position: absolute !important; /* Oppure relative */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+/* Allinea perfettamente l'altezza delle due colonne della griglia */
+.page-46-94 .small-mockups-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-bottom: 80px;
+    align-items: stretch; /* Stretch assicura la stessa altezza totale per entrambe le colonne */
+}
+
+/* La colonna di destra deve occupare il 100% dell'altezza disponibile */
+.page-46-94 .small-mockups-grid .column-right {
+    display: flex;
+    height: 100%;
+}
+
+.page-46-94 .small-mockups-grid .column-right a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fa riempire l'immagine a tutta altezza ritagliandola leggermente se necessario */
+.page-46-94 .small-mockups-grid .column-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene l'immagine piena e allineata senza distorcerla */
+}
+/* 5. Shopper a Sfondo Nero Full Width e d'impatto */
+.page-46-94 .full-width-black {
+    background-color: #000000;
+    padding: 100px 20px; /* Aumenta l'altezza verticale del blocco nero */
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-46-94 .full-width-black img {
+    max-width: 850px; /* Incrementato da 450px a 850px per un mockup imponente */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* ===================================================
+   CORREZIONI PER LA PAGINA 46-94
+   =================================================== */
+
+/* 1. Sposta i crediti lateralmente rispetto alla copertina del libro */
+.page-46-94 .book-editorial-section .book-cover-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide lo spazio in due colonne: sinistra immagine, destra crediti */
+    gap: 30px;
+    align-items: start;
+    grid-column: span 2; /* Espande l'intera sezione se necessario */
+}
+
+/* Se preferisci che la griglia principale contenga 3 colonne (pagine, cofanetto, crediti) */
+.page-46-94 .book-editorial-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonne: Pagine / Cofanetto / Crediti */
+    gap: 30px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+.page-46-94 .book-editorial-section .book-cover-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.page-46-94 .project-credits-text {
+    font-size: 0.85rem;
+    color: #0000ff;
+    line-height: 1.4;
+    /* Se vuoi metterli esattamente a fianco della copertina, puoi posizionarli qui */
+}
+
+/* 2. Elimina lo spazio bianco tra l'ultima immagine e il footer */
+.page-46-94 .full-width-banner {
+    margin-top: 60px;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.page-46-94 .full-width-banner img {
+    display: block;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.page-46-94 .project-main {
+    padding-bottom: 0 !important; /* Rimuove il padding inferiore del main */
+}
+/* Layout a due colonne per la sezione descrizione/crediti in 46-94 */
+.page-46-94 .project-header-section .project-info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 parti per il testo descrittivo, 1 parte per i crediti */
+    gap: 60px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+/* Stile e font dei crediti identici a quelli attuali, ma posizionati a destra */
+.page-46-94 .project-credits-text {
+    font-size: 0.85rem;
+    color: #0000ff;
+    line-height: 1.4;
+}
+
+.page-46-94 .project-credits-text a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+/* Adattamento responsive per smartphone (ritornano a colonna singola) */
+@media (max-width: 768px) {
+    .page-46-94 .project-header-section .project-info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+/* Riduce lo spazio tra il testo/crediti e l'immagine del logo sottostante */
+.page-46-94 .project-header-section {
+    margin-bottom: 30px !important; /* Ridotto rispetto ai 60px/80px precedenti */
+    padding-bottom: 0 !important;
+}
+
+/* Opzionale: riduce leggermente il margine del blocco di testo interno */
+.page-46-94 .project-header-section .project-info-grid {
+    margin-bottom: 0 !important;
+}

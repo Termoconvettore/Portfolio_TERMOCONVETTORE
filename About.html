@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termoconvettore - About</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- Script ufficiale di Google Model Viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <style>
+        /* Sblocco totale dello scroll e reset base */
+        html, body {
+            height: auto !important;
+            min-height: 100vh !important;
+            overflow: auto !important;
+            overflow-y: scroll !important;
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        /* Header e footer bianchi come nella pagina works */
+        header, footer {
+            color: #ffffff !important;
+        }
+        header a, footer a, header span, footer span, footer strong {
+            color: #ffffff !important;
+        }
+
+        main.about-main {
+            flex: 1;
+            width: 100%;
+            padding: 140px 8vw 100px 8vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        /* Stile del testo bio allineato a tellme! */
+        .about-bio {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Titolo H1 reso identico a quello di tellme! (spessore, interlinea, stacco) */
+        .about-bio h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            text-transform: lowercase;
+        }
+
+        /* Interlinea e spaziatura paragrafi coerenti con tellme! */
+        .about-bio p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .about-3d-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        model-viewer.model-canvas {
+            width: 100%;
+            height: 420px;
+            background-color: transparent !important;
+            outline: none;
+            --poster-color: transparent;
+        }
+        
+        .caption-3d {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.75rem;
+            margin-top: 10px;
+            color: #888;
+            letter-spacing: -0.5px;
+        }
+
+        /* Griglia CV perfettamente allineata a due righe per blocco */
+        .cv-section {
+            width: 100%;
+            max-width: 1200px;
+            border-top: 1px solid #000;
+            padding-top: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .cv-column h2 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* Ogni elemento ha altezza e struttura rigida identica */
+        .cv-row {
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .cv-row h3 {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin: 0 0 4px 0;
+        }
+
+        .cv-row p {
+            margin: 0;
+            color: #333;
+        }
+
+        .cv-row span.sub {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            position: relative !important;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .about-container, .cv-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            main.about-main {
+                padding: 120px 5vw 60px 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <div class="header-left"><a href="index.html" class="home-link">termoconvettore</a></div>        
+    <div class="header-right">
+        <a href="works.html" class="nav-link">works</a>  
+        <a href="about.html" class="nav-link">about</a>
+        <span class="nav-link">mind</span>
+        <a href="tellme!.html" class="nav-link">tellme!</a>
+    </div>
+</header>
+
+    <main class="about-main">
+        <div class="about-container">
+            
+            <!-- Biografia -->
+            <div class="about-text-section">
+                <div class="about-bio">
+                    <h1>Who am I at the moment</h1>
+                    <p>Ciao! My name is <strong>Valeria</strong>, I'm a graphic designer working across editorial and motion design, currently based between Bologna and Rovereto.</p>
+                    <p>My practice is research-driven, exploring the relationships between the elements I work with to develop their visual language.</p>
+                    <p>I try to keep my technical skills flexible, letting each project define its own language rather than being constrained by tools.</p>
+                </div>
+            </div>
+
+            <!-- Modello 3D -->
+            <div class="about-3d-section">
+                <model-viewer 
+                    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+                    alt="3D Placeholder" 
+                    auto-rotate 
+                    camera-controls 
+                    camera-orbit="0deg 75deg 105%"
+                    class="model-canvas">
+                </model-viewer>
+                <span class="caption-3d">[ auto-rotating / drag to interact ]</span>
+            </div>
+
+        </div>
+
+        <!-- Sezione Formazione & Skills a griglia perfettamente simmetrica -->
+        <div class="cv-section">
+            
+            <!-- Colonna Sinistra: Education -->
+            <div class="cv-column">
+                <h2>education</h2>
+                <div class="cv-row">
+                    <h3>BA in Graphic Design <span class="sub">(2024 - ongoing)</span></h3>
+                    <p>Accademia di Belle Arti di Bologna</p>
+                </div>
+                <div class="cv-row">
+                    <h3>High School Diploma in Graphic Design <span class="sub">(100/100)</span></h3>
+                    <p>Liceo Artistico F. Depero, Rovereto</p>
+                </div>
+            </div>
+
+            <!-- Colonna Destra: Technical Skills -->
+            <div class="cv-column">
+                <h2>technical skills</h2>
+                <div class="cv-row">
+                    <h3>Adobe Creative Suite</h3>
+                    <p>Photoshop, Illustrator, InDesign, After Effects</p>
+                </div>
+                <div class="cv-row">
+                    <h3>Real-time & 3D </h3>
+                    <p>TouchDesigner, Resolume Arena, Blender, Figma, Glyphs </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+    <div class="footer-item">
+        <a href="index.html" class="footer-link"><strong>termoconvettore</strong></a><br>
+        Valeria Fumanelli,<br>
+        all rights reserved.
+    </div>
+    
+    <div class="footer-item">
+        <a href="works.html" class="footer-link">works</a>
+    </div>
+
+    <div class="footer-item">
+        <a href="about.html" class="footer-link">about</a>
+    </div>
+
+    <div class="footer-item">
+        <span class="footer-link">mind</span>
+    </div>
+
+    <div class="footer-item">
+        <a href="tellme.html" class="footer-link">tellme!</a><br>
+        <a href="https://www.instagram.com/termoconvettore_/" target="_blank" class="footer-link">insta.termoconvettore</a><br>
+        <a href="mailto:822valeria@gmail.com" class="footer-link">822valeria@gmail.com</a>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termoconvettore - Tellme!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        /* Sblocco totale dello scroll e reset base coerente con about */
+        html, body {
+            height: auto !important;
+            min-height: 100vh !important;
+            overflow: auto !important;
+            overflow-y: scroll !important;
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        /* Header e footer bianchi come nel resto del sito */
+        header, footer {
+            color: #ffffff !important;
+        }
+        header a, footer a, header span, footer span, footer strong {
+            color: #ffffff !important;
+        }
+
+        main.tellme-main {
+            flex: 1;
+            width: 100%;
+            padding: 140px 8vw 100px 8vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tellme-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Colonna di Sinistra: Info di contatto dirette */
+        .tellme-info h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            text-transform: lowercase;
+        }
+
+        .tellme-info p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        .contact-links li a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+            transition: opacity 0.2s;
+        }
+
+        .contact-links li a:hover {
+            opacity: 0.5;
+        }
+
+        .contact-links span.label {
+            color: #666;
+            display: inline-block;
+            width: 110px;
+        }
+
+        /* Colonna di Destra: Form di Contatto / Lavoriamo insieme */
+        .tellme-form-section h2 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: lowercase;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            padding: 12px;
+            border: 1px solid #000;
+            border-radius: 0;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            background-color: #f9f9f9;
+        }
+
+        .submit-btn {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            background-color: #0000FF;
+            color: #fff;
+            padding: 14px 20px;
+            border: none;
+            cursor: pointer;
+            text-transform: lowercase;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #6666f3;
+        }
+
+        footer {
+            position: relative !important;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .tellme-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            main.tellme-main {
+                padding: 120px 5vw 60px 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <div class="header-left"><a href="index.html" class="home-link">termoconvettore</a></div>        
+    <div class="header-right">
+        <a href="works.html" class="nav-link">works</a>  
+        <a href="about.html" class="nav-link">about</a>
+        <span class="nav-link">mind</span>
+        <a href="tellme!.html" class="nav-link">tellme!</a>
+    </div>
+</header>
+
+    <main class="tellme-main">
+        <div class="tellme-container">
+            
+            <!-- Colonna Sinistra: Testo introduttivo e contatti diretti -->
+            <div class="tellme-info">
+                <h1>Tell me!</h1>
+                <p>Got a project in mind, an idea for a collaboration, a feedback on my works or just want to say hi? Pls Reach out directly or drop a message using the form :))</p>
+                
+                <ul class="contact-links">
+                    <li><span class="label">email:</span> <a href="mailto:822valeria@gmail.com">822valeria@gmail.com</a></li>
+                    <li><span class="label">instagram:</span> <a href="https://instagram.com/termoconvettore_" target="_blank">@termoconvettore_</a></li>
+                    <li><span class="label">based in:</span> Bologna / Rovereto / Rotterdam</li>
+                </ul>
+            </div>
+
+            <!-- Colonna di Destra: Form interattivo per lavorare insieme -->
+            <div class="tellme-form-section">
+                <h2>send a message</h2>
+                <!-- Puoi collegare il form a servizi gratuiti come Formspree o Netlify Forms inserendo l'action -->
+                <form action="https://formspree.io/f/il_tuo_codice" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">your name</label>
+                        <input type="text" id="name" name="name" required placeholder="name / studio">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">your email</label>
+                        <input type="email" id="email" name="email" required placeholder="name@domain.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">project / message</label>
+                        <textarea id="message" name="message" required placeholder="tell me about your project..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">send message</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+   <footer>
+    <div class="footer-item">
+        <a href="index.html" class="footer-link"><strong>termoconvettore</strong></a><br>
+        Valeria Fumanelli,<br>
+        all rights reserved.
+    </div>
+    
+    <div class="footer-item">
+        <a href="works.html" class="footer-link">works</a>
+    </div>
+
+    <div class="footer-item">
+        <a href="about.html" class="footer-link">about</a>
+    </div>
+
+    <div class="footer-item">
+        <span class="footer-link">mind</span>
+    </div>
+
+    <div class="footer-item">
+        <a href="tellme.html" class="footer-link">tellme!</a><br>
+        <a href="https://www.instagram.com/termoconvettore_/" target="_blank" class="footer-link">insta.termoconvettore</a><br>
+<a href="mailto:822valeria@gmail.com" class="footer-link">822valeria@gmail.com</a>    </div>
+</footer>
+
+</body>
+</html>
